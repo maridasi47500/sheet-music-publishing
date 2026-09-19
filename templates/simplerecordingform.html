@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block content %}<form  enctype="multipart/form-data" method="POST">
+<div class="field"><label for="somefieldvideo">video</label><label for="somefieldvideo1"><input type="radio" id="somefieldvideo1" name="video" value="1"/>yes</label>
+<label for="somefieldvideo2"><input type="radio" id="somefieldvideo2" name="video" value="0"/>no</label></div>
+<div class="field"><label for="somefieldsimplerecordingvid">vid</label><input type="file" id="somefieldsimplerecordingvid" name="vid"/></div>
+<div class="field"><label for="somefieldsimplescore_id">simplescore_id</label><select id="somefieldsimplescore_id" name="simplescore_id"><option value="novalue">no value</option>
+{% for somesimplescore in touslessimplescore %}
+<option value="{{ somesimplescore['id'] }}">{{ somesimplescore['name'] }}</option>{% endfor %}
+</select></div><div class="actions"><input type="submit"/></div></form>{% for x in simplerecordings %}<p class="myvideo">{{x["video"] }}</p>{% endfor %}{% endblock %}{% block liens %}<a href="/">bienvenue</a><a href="/add_one_simplerecording"> add one simplerecording</a>{% endblock %}

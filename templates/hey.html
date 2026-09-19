@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block montitre %}
+debut de mes mots: bienveue
+{% endblock %}
+{% block content %}
+<h1># sheet-music-publishing</h1>
+{% for x in users | reverse %}
+ <li>{{ x["first_name"]  }}</li>
+
+{% endfor %} 
+fin de mes mots : morceau a jouerau violon : le morceau quon peut jouer comme le capriccio, string quartet, etc . cherche dans les partitions scores featuring the violin
+{% endblock %}
+{% block liens %}
+<a href="/">welcome</a>
+{% endblock %}
