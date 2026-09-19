@@ -1,2 +1,5 @@
 {% extends 'base.html' %}{% block content %}<form  enctype="multipart/form-data" method="POST">
-<div class="field"><label for="somefieldmorceau_a_jouername">name</label><input type="text" id="somefieldmorceau_a_jouername" name="name"/></div><div class="actions"><input type="submit"/></div></form>{% for x in morceau_a_jouers %}<p class="myname">{{x["name"] }}</p>{% endfor %}{% endblock %}{% block liens %}<a href="/">bienvenue</a><a href="/add_one_morceau_a_jouer"> add one morceau_a_jouer</a>{% endblock %}
+<div class="field"><label for="somefieldmorceau_a_jouername">name</label><input type="text" id="somefieldmorceau_a_jouername" name="name"/></div><div class="actions"><input type="submit"/></div></form>{% for x in morceau_a_jouers %}<p class="myname">
+{{x["name"] }}
+
+</p>{% endfor %}{% endblock %}{% block liens %}<a href="/">bienvenue</a><a href="/add_one_morceau_a_jouer"> add one morceau_a_jouer</a>{% endblock %}
