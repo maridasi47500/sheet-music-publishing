@@ -18,4 +18,9 @@
 <div class="field"><label for="somefieldmorceau_a_jouer_id">morceau_a_jouer_id</label><select id="somefieldmorceau_a_jouer_id" name="morceau_a_jouer_id"><option value="novalue">no value</option>
 {% for somemorceau_a_jouer in touslesmorceau_a_jouer %}
 <option value="{{ somemorceau_a_jouer['id'] }}">{{ somemorceau_a_jouer['name'] }}</option>{% endfor %}
-</select></div><div class="actions"><input type="submit"/></div></form>{% for x in simplescores %}<p class="mytitle_score">{{x["title_score"] }}</p>{% endfor %}{% endblock %}{% block liens %}<a href="/">bienvenue</a><a href="/add_one_simplescore"> add one simplescore</a>{% endblock %}
+</select></div><div class="actions"><input type="submit"/></div></form>
+{% for x in simplescores %}
+<p class="mytitle_score">{{x["title_score"] }}</p>
+<p class="mytitle_score"><img src="{{x["pic"] }}"/></p>
+{% endfor %}
+{% endblock %}{% block liens %}<a href="/">bienvenue</a><a href="/add_one_simplescore"> add one simplescore</a>{% endblock %}

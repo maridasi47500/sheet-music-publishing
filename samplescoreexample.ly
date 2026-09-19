@@ -28,9 +28,13 @@ MvmntIVoiceI = {
 tagline = \markup {"" on \simple #(strftime "%x" (localtime (current-time)))}
 
         }
-#(set-default-paper-size "a4")
+#(set-default-paper-size "a6")
 #(set-global-staff-size 18)
+\book {
 \paper {
+    oddFooterMarkup = \markup {
+"copyright MYEDITIONPUBLISHING, MYCITY"
+    }
 
        }
 
@@ -48,6 +52,12 @@ tagline = \markup {"" on \simple #(strftime "%x" (localtime (current-time)))}
           >>
 
        } %End of Movement
+\header {
+title = "MYPIECE"
+subtitle = "MYTITLE"
+composer = "MYCOMPOSER"
+}
+}
 
 
 

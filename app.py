@@ -213,7 +213,15 @@ def add_one_simplescore():
 
         file_pointer = open("./samplescoreexample.ly")
         contents = file_pointer.read()
-        contents=contents.replace("KEYSCOREHERE", request.form["key_signature"].replace(" "," \\")).replace("TIMESCOREHERE", request.form["time_signature"]).replace("CONTENTSCOREHERE", request.form["myscore"])
+        try:
+            piece = query_db('select * from morceau_a_jouer where id = ?', [hey["morceau_a_jouer_id"]], one=True)["name"]
+        except:
+            piece="Capriccio"
+        try:
+            cityname = query_db('select * from city where id = ?', [hey["city_id"]], one=True)["name"]
+        except:
+            cityname="Paris"
+        contents=contents.replace("KEYSCOREHERE", request.form["key_signature"].replace(" "," \\")).replace("MYTITLE", hey["title_score"]).replace("MYCOMPOSER", hey["composer"]).replace("MYPIECE", piece).replace("MYEDITIONPUBLISHING", request.form["edition"]).replace("MYCITY", cityname).replace("TIMESCOREHERE", request.form["time_signature"]).replace("CONTENTSCOREHERE", request.form["myscore"])
         file_pointer = open("./static/scores/simplescore_myscore_sample_"+mylastrowid+".ly", "w")
         file_pointer.write(contents)
         file_pointer.close()
